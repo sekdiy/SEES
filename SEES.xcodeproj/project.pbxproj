@@ -1,0 +1,266 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA9BCFA5188EAA0000640276 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA9BCFA4188EAA0000640276 /* main.cpp */; };
+		BA9BCFA7188EAA0000640276 /* SEES.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA9BCFA6188EAA0000640276 /* SEES.1 */; };
+		BA9BCFAA188EAA0000640276 /* libsystemc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9BCFA9188EAA0000640276 /* libsystemc.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BA9BCF9E188EAA0000640276 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				BA9BCFA7188EAA0000640276 /* SEES.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BA9BCFA0188EAA0000640276 /* SEES */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SEES; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA9BCFA4188EAA0000640276 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BA9BCFA6188EAA0000640276 /* SEES.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SEES.1; sourceTree = "<group>"; };
+		BA9BCFA9188EAA0000640276 /* libsystemc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsystemc.a; path = /Library/SystemC/Current/libsystemc.a; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA9BCF9D188EAA0000640276 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA9BCFAA188EAA0000640276 /* libsystemc.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA9BCF97188EAA0000640276 = {
+			isa = PBXGroup;
+			children = (
+				BA9BCFA2188EAA0000640276 /* SEES */,
+				BA9BCFA1188EAA0000640276 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA9BCFA1188EAA0000640276 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA9BCFA0188EAA0000640276 /* SEES */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA9BCFA2188EAA0000640276 /* SEES */ = {
+			isa = PBXGroup;
+			children = (
+				BA9BCFA6188EAA0000640276 /* SEES.1 */,
+				BA9BCFA3188EAA0000640276 /* Source */,
+				BA9BCFA8188EAA0000640276 /* Libraries */,
+			);
+			path = SEES;
+			sourceTree = "<group>";
+		};
+		BA9BCFA3188EAA0000640276 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				BA9BCFA4188EAA0000640276 /* main.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		BA9BCFA8188EAA0000640276 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BA9BCFA9188EAA0000640276 /* libsystemc.a */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA9BCF9F188EAA0000640276 /* SEES */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA9BCFAD188EAA0000640276 /* Build configuration list for PBXNativeTarget "SEES" */;
+			buildPhases = (
+				BA9BCF9C188EAA0000640276 /* Sources */,
+				BA9BCF9D188EAA0000640276 /* Frameworks */,
+				BA9BCF9E188EAA0000640276 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SEES;
+			productName = SEES;
+			productReference = BA9BCFA0188EAA0000640276 /* SEES */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA9BCF98188EAA0000640276 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Sebastian Kraus";
+			};
+			buildConfigurationList = BA9BCF9B188EAA0000640276 /* Build configuration list for PBXProject "SEES" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BA9BCF97188EAA0000640276;
+			productRefGroup = BA9BCFA1188EAA0000640276 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA9BCF9F188EAA0000640276 /* SEES */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA9BCF9C188EAA0000640276 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA9BCFA5188EAA0000640276 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BA9BCFAB188EAA0000640276 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Library/SystemC/Current/include;
+				LIBRARY_SEARCH_PATHS = /Library/SystemC/Current;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BA9BCFAC188EAA0000640276 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /Library/SystemC/Current/include;
+				LIBRARY_SEARCH_PATHS = /Library/SystemC/Current;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BA9BCFAE188EAA0000640276 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/SystemC/Current",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA9BCFAF188EAA0000640276 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/SystemC/Current",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA9BCF9B188EAA0000640276 /* Build configuration list for PBXProject "SEES" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA9BCFAB188EAA0000640276 /* Debug */,
+				BA9BCFAC188EAA0000640276 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA9BCFAD188EAA0000640276 /* Build configuration list for PBXNativeTarget "SEES" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA9BCFAE188EAA0000640276 /* Debug */,
+				BA9BCFAF188EAA0000640276 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA9BCF98188EAA0000640276 /* Project object */;
+}
