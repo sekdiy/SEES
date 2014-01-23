@@ -6,7 +6,7 @@ using namespace sc_core;
 int sc_main (int argc, char * argv[]) {
 
     // Signals
-    sc_fifo<int> floorButtonUpSignal(1);
+    sc_signal<int> floorButtonUpSignal[3];
 
     // Passengers
     Passenger pass1("Peter");
@@ -15,8 +15,8 @@ int sc_main (int argc, char * argv[]) {
 
     // FloorButtons
     FloorButtonUp fbu("ButtonUp");
-    fbu.requestUpFloor(floorButtonUpSignal);
-    pass1.requestUpFloor(floorButtonUpSignal);
+    fbu.requestUpFloor[0](floorButtonUpSignal[0]);
+    pass1.requestUpFloor[0](floorButtonUpSignal[0]);
     //pass2.requestUpFloor(floorButtonUpSignal);
     //pass3.requestUpFloor(floorButtonUpSignal);
 

@@ -4,7 +4,6 @@ using namespace std;
 
 void FloorButtonUp::pushButtonUp(){
     
-    wait();
-    cout << "Received request from floor " << requestUpFloor.read() << endl;
+    cout << "Received request from floor " << requestUpFloor[0].read() << endl;
 
 }

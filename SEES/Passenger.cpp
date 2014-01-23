@@ -17,7 +17,7 @@ void Passenger::travel(){
     
     // check if the button for up- or downward requests has to be pushed
     if( destination > position)
-        requestUpFloor.write(position);
+        requestUpFloor[0]->write(position);
     // else push btn downwards
         
     cout << name() << " started travelling from floor " << position << " towards floor " << destination << "." << endl;

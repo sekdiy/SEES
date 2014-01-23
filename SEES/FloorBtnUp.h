@@ -7,7 +7,7 @@ SC_MODULE(FloorButtonUp){
     
     // ports
     sc_signal<int>  pushed;
-    sc_fifo_in<int> requestUpFloor;
+    sc_in<int> requestUpFloor[1];
     sc_event        buttonUp;
     
     void pushButtonUp();
@@ -15,8 +15,8 @@ SC_MODULE(FloorButtonUp){
     SC_CTOR(FloorButtonUp){
         
         // registering processes
-        SC_THREAD(pushButtonUp);
-        sensitive << requestUpFloor;
+        SC_METHOD(pushButtonUp);
+        sensitive << requestUpFloor[0];
     }
     
 
