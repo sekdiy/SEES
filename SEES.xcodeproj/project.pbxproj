@@ -28,6 +28,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3B35B97118913DCC004C03EE /* FloorBtnDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorBtnDown.h; sourceTree = "<group>"; };
 		BA8EA2E218913D4E00CE846B /* FloorBtnUp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FloorBtnUp.cpp; sourceTree = "<group>"; };
 		BA8EA2E318913D4E00CE846B /* FloorBtnUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorBtnUp.h; sourceTree = "<group>"; };
 		BA8EA2E418913D4E00CE846B /* Passenger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Passenger.cpp; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 				BA8EA2E418913D4E00CE846B /* Passenger.cpp */,
 				BA8EA2E518913D4E00CE846B /* Passenger.h */,
 				BA9BCFA4188EAA0000640276 /* main.cpp */,
+				3B35B97118913DCC004C03EE /* FloorBtnDown.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
