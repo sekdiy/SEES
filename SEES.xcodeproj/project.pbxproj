@@ -10,6 +10,8 @@
 		BA9BCFA5188EAA0000640276 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA9BCFA4188EAA0000640276 /* main.cpp */; };
 		BA9BCFA7188EAA0000640276 /* SEES.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA9BCFA6188EAA0000640276 /* SEES.1 */; };
 		BA9BCFAA188EAA0000640276 /* libsystemc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9BCFA9188EAA0000640276 /* libsystemc.a */; };
+		BAC1937A18913AF700F6CFF7 /* FloorBtnUp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC1937618913AF700F6CFF7 /* FloorBtnUp.cpp */; };
+		BAC1937B18913AF700F6CFF7 /* Passenger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BAC1937818913AF700F6CFF7 /* Passenger.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +32,11 @@
 		BA9BCFA4188EAA0000640276 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BA9BCFA6188EAA0000640276 /* SEES.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SEES.1; sourceTree = "<group>"; };
 		BA9BCFA9188EAA0000640276 /* libsystemc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsystemc.a; path = /Library/SystemC/Current/libsystemc.a; sourceTree = "<absolute>"; };
+		BA9BCFB0188EAD8F00640276 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BAC1937618913AF700F6CFF7 /* FloorBtnUp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FloorBtnUp.cpp; path = ../../../Dropbox/Studium/SEES/SEES_HA_1/HA2/Fahrstuhlsteuerung/Fahrstuhl/FloorBtnUp.cpp; sourceTree = "<group>"; };
+		BAC1937718913AF700F6CFF7 /* FloorBtnUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloorBtnUp.h; path = ../../../Dropbox/Studium/SEES/SEES_HA_1/HA2/Fahrstuhlsteuerung/Fahrstuhl/FloorBtnUp.h; sourceTree = "<group>"; };
+		BAC1937818913AF700F6CFF7 /* Passenger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Passenger.cpp; path = ../../../Dropbox/Studium/SEES/SEES_HA_1/HA2/Fahrstuhlsteuerung/Fahrstuhl/Passenger.cpp; sourceTree = "<group>"; };
+		BAC1937918913AF700F6CFF7 /* Passenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Passenger.h; path = ../../../Dropbox/Studium/SEES/SEES_HA_1/HA2/Fahrstuhlsteuerung/Fahrstuhl/Passenger.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +54,7 @@
 		BA9BCF97188EAA0000640276 = {
 			isa = PBXGroup;
 			children = (
+				BA9BCFB0188EAD8F00640276 /* .gitignore */,
 				BA9BCFA2188EAA0000640276 /* SEES */,
 				BA9BCFA1188EAA0000640276 /* Products */,
 			);
@@ -73,6 +81,10 @@
 		BA9BCFA3188EAA0000640276 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				BAC1937618913AF700F6CFF7 /* FloorBtnUp.cpp */,
+				BAC1937718913AF700F6CFF7 /* FloorBtnUp.h */,
+				BAC1937818913AF700F6CFF7 /* Passenger.cpp */,
+				BAC1937918913AF700F6CFF7 /* Passenger.h */,
 				BA9BCFA4188EAA0000640276 /* main.cpp */,
 			);
 			name = Source;
@@ -137,6 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC1937B18913AF700F6CFF7 /* Passenger.cpp in Sources */,
+				BAC1937A18913AF700F6CFF7 /* FloorBtnUp.cpp in Sources */,
 				BA9BCFA5188EAA0000640276 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +273,7 @@
 				BA9BCFAF188EAA0000640276 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
