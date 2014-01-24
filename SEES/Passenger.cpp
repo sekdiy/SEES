@@ -8,18 +8,23 @@ void Passenger::sayMyName(){
 
 void Passenger::travel(){
     
-    // get a random start and end for the passengers journey
-    position = rand() % 4;
-    destination = rand() % 4;
+    position = rand() % 4; // get a random start...
     
-    while(destination == position)
-        destination = rand() % 4;
-    
-    // check if the button for up- or downward requests has to be pushed
-    if( destination > position)
-        requestUpFloor[0]->write(position);
-    // else push btn downwards
+    while (true) {
         
-    cout << name() << " started travelling from floor " << position << " towards floor " << destination << "." << endl;
-    wait(2, SC_SEC);
+        destination = rand() % 4; // ... and end for the passengers journey
+        
+        while(destination == position)
+            destination = rand() % 4;
+
+        // check if the button for up- or downward requests has to be pushed
+        if( position < destination && requestUpFloor[position].read() == -1 ){
+            requestUpFloor[position].write(position);
+        }
+        // else push btn downwards
+            
+        cout << name() << " waits to travel from floor " << position << " towards floor " << destination << "." << endl;
+        wait(2, SC_SEC);
+        position = destination;
+    }
 }

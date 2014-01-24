@@ -6,17 +6,19 @@ using namespace sc_core;
 SC_MODULE(FloorButtonUp){
     
     // ports
-    sc_signal<int>  pushed;
-    sc_in<int> requestUpFloor[1];
-    sc_event        buttonUp;
+    sc_in<int> requestUpFloor;
+
+    
+    //members
+    int position; // level on which the button is installed
     
     void pushButtonUp();
     
     SC_CTOR(FloorButtonUp){
         
         // registering processes
-        SC_METHOD(pushButtonUp);
-        sensitive << requestUpFloor[0];
+        SC_THREAD(pushButtonUp);
+        sensitive << requestUpFloor;
     }
     
 
