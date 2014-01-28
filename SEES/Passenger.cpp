@@ -22,7 +22,6 @@ void Passenger::travel(){
             requestUpFloor[position]->write(position);
         }
         // else push btn downwards
-            
         cout << name() << " waits to travel from floor " << position << " towards floor " << destination << "." << endl;
         wait(2, SC_SEC);
         position = destination;
