@@ -6,7 +6,7 @@ using namespace sc_core;
 SC_MODULE(Passenger){
     
     // ports
-    sc_out<int> requestUpFloor[3];
+    sc_port<sc_signal_inout_if<int>> requestUpFloor[3];
     
     // members
     int position;

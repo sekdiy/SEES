@@ -18,8 +18,8 @@ void Passenger::travel(){
             destination = rand() % 4;
 
         // check if the button for up- or downward requests has to be pushed
-        if( position < destination && requestUpFloor[position].read() == -1 ){
-            requestUpFloor[position].write(position);
+        if( position < destination && requestUpFloor[position]->read() == -1 ){
+            requestUpFloor[position]->write(position);
         }
         // else push btn downwards
             

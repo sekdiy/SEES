@@ -15,7 +15,7 @@ int sc_main (int argc, char * argv[]) {
     
     // Passengers
     Passenger pass1("Peter");
-    //Passenger pass2("Paul");
+    Passenger pass2("Paul");
     //Passenger pass3("Mary");
 
     // FloorButtons
@@ -33,11 +33,11 @@ int sc_main (int argc, char * argv[]) {
     pass1.requestUpFloor[0](floorButtonUpSignal[0]);
     pass1.requestUpFloor[1](floorButtonUpSignal[1]);
     pass1.requestUpFloor[2](floorButtonUpSignal[2]);
-    /*
+    
     pass2.requestUpFloor[0](floorButtonUpSignal[0]);
     pass2.requestUpFloor[1](floorButtonUpSignal[1]);
     pass2.requestUpFloor[2](floorButtonUpSignal[2]);
-    */
+    
     //pass2.requestUpFloor(floorButtonUpSignal);
     //pass3.requestUpFloor(floorButtonUpSignal);
 

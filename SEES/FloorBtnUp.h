@@ -6,7 +6,7 @@ using namespace sc_core;
 SC_MODULE(FloorButtonUp){
     
     // ports
-    sc_in<int> requestUpFloor;
+    sc_port<sc_signal_in_if<int>, 0, SC_ZERO_OR_MORE_BOUND> requestUpFloor;
 
     
     //members
