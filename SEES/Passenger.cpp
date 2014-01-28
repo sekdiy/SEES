@@ -16,10 +16,12 @@ void Passenger::travel(){
         
         while(destination == position)
             destination = rand() % 4;
-
+        
         // check if the button for up- or downward requests has to be pushed
         if( position < destination && requestUpFloor[position]->read() == -1 ){
             requestUpFloor[position]->write(position);
+        } else {
+            
         }
         // else push btn downwards
         cout << name() << " waits to travel from floor " << position << " towards floor " << destination << "." << endl;

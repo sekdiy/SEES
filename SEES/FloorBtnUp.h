@@ -11,6 +11,7 @@ SC_MODULE(FloorButtonUp){
     
     //members
     int position; // level on which the button is installed
+    int pushed;
     
     void pushButtonUp();
     
