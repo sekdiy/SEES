@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B2FECFD1899D55F00EBBF46 /* FloorBtn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FECFC1899D55F00EBBF46 /* FloorBtn.cpp */; };
+		3B2FED001899D92700EBBF46 /* Control.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FECFF1899D92700EBBF46 /* Control.cpp */; };
+		3B2FED031899D97600EBBF46 /* Elevator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3B2FED021899D97600EBBF46 /* Elevator.cpp */; };
 		BA8EA2E718913D4E00CE846B /* Passenger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA8EA2E418913D4E00CE846B /* Passenger.cpp */; };
 		BA9BCFA5188EAA0000640276 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BA9BCFA4188EAA0000640276 /* main.cpp */; };
 		BA9BCFA7188EAA0000640276 /* SEES.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = BA9BCFA6188EAA0000640276 /* SEES.1 */; };
@@ -30,7 +32,10 @@
 /* Begin PBXFileReference section */
 		3B2FECFB1899D53900EBBF46 /* FloorBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorBtn.h; sourceTree = "<group>"; };
 		3B2FECFC1899D55F00EBBF46 /* FloorBtn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FloorBtn.cpp; sourceTree = "<group>"; };
-		3B35B97118913DCC004C03EE /* FloorBtnDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorBtnDown.h; sourceTree = "<group>"; };
+		3B2FECFE1899D91A00EBBF46 /* Control.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Control.h; sourceTree = "<group>"; };
+		3B2FECFF1899D92700EBBF46 /* Control.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Control.cpp; sourceTree = "<group>"; };
+		3B2FED011899D96C00EBBF46 /* Elevator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Elevator.h; sourceTree = "<group>"; };
+		3B2FED021899D97600EBBF46 /* Elevator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Elevator.cpp; sourceTree = "<group>"; };
 		BA8EA2E418913D4E00CE846B /* Passenger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Passenger.cpp; sourceTree = "<group>"; };
 		BA8EA2E518913D4E00CE846B /* Passenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Passenger.h; sourceTree = "<group>"; };
 		BA9BCFA0188EAA0000640276 /* SEES */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SEES; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,9 +90,12 @@
 				BA8EA2E418913D4E00CE846B /* Passenger.cpp */,
 				BA8EA2E518913D4E00CE846B /* Passenger.h */,
 				BA9BCFA4188EAA0000640276 /* main.cpp */,
-				3B35B97118913DCC004C03EE /* FloorBtnDown.h */,
 				3B2FECFB1899D53900EBBF46 /* FloorBtn.h */,
 				3B2FECFC1899D55F00EBBF46 /* FloorBtn.cpp */,
+				3B2FECFE1899D91A00EBBF46 /* Control.h */,
+				3B2FECFF1899D92700EBBF46 /* Control.cpp */,
+				3B2FED011899D96C00EBBF46 /* Elevator.h */,
+				3B2FED021899D97600EBBF46 /* Elevator.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -152,7 +160,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA8EA2E718913D4E00CE846B /* Passenger.cpp in Sources */,
+				3B2FED001899D92700EBBF46 /* Control.cpp in Sources */,
 				BA9BCFA5188EAA0000640276 /* main.cpp in Sources */,
+				3B2FED031899D97600EBBF46 /* Elevator.cpp in Sources */,
 				3B2FECFD1899D55F00EBBF46 /* FloorBtn.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

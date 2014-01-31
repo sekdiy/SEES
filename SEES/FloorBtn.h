@@ -7,11 +7,8 @@ SC_MODULE(FloorButton){
     
     // ports
     sc_in<int> requests[3];
-    
-    
-    //members
-    int pushedUp[3];
-    int pushedDown[3];
+    sc_inout<int> pushedUp[3];
+    sc_inout<int> pushedDown[3];
     
     void pushButton();
     

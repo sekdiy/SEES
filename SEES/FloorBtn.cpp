@@ -17,13 +17,14 @@ void FloorButton::pushButton(){
                 
                 // check if it is an upward or downward request
                 if( req >= 0 ){
-                    if( !pushedUp[i] ){
-                        pushedUp[i] = 1;
+                    if( !pushedUp[i]->read() ){
+                        pushedUp[i]->write(1);
                         cout << name() << " received new upward request from floor " << i << endl;
+                
                     }
                 } else {
-                    if( !pushedDown[i] ) {
-                        pushedDown[i] = 1;
+                    if( !pushedDown[i]->read() ) {
+                        pushedDown[i]->write(1);
                         cout << name() << " received new downward request from floor " << i << endl;
                     }
                 }
