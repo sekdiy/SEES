@@ -4,6 +4,8 @@ using namespace std;
 
 void Control::sendElevator(){
     
+    elevatorMode->write(newMode);
+    elevatorTarget->write(newTarget);
 }
 
 void Control::receiveFloorRequest(){
@@ -17,17 +19,20 @@ void Control::receiveFloorRequest(){
             if(uwRequests[i]->event() == 1){
                 
                 // if the lift is in idle mode
-                if( true ){
-                    target = i;
+                if( elevatorMode->read() == 0 ){
+
+                    newTarget = i;
+                    newMode = 1;
+                    
                     // get the elevator moving
                     sendElevator();
                 } else {
                     
-                    // check if request comes from a higher floor
-                    if(true){
+                    // check if request comes from a higher floor and if the elevator moves upwards
+                    if( (elevatorPosition->read() > 10 * i) && elevatorMode->read() == 1 ){
                         
                     } else {
-                        queueRequest(i);
+                        queueRequest(uwRequests[i]->read());
                     }
                 }
             }
@@ -37,16 +42,16 @@ void Control::receiveFloorRequest(){
                 
                 // if the lift is in idle mode
                 if( true ){
-                    target = i;
+                    elevatorTarget->write(i);
                     // get the elevator moving
                     sendElevator();
                 } else {
                     
-                    // check if request comes from a lower floor
+                    // check if request comes from a lower floor and if the elevator moves downwards
                     if(true){
                         
                     } else {
-                        queueRequest(i);
+                        queueRequest(uwRequests[i]->read());
                     }
                 }
             }
@@ -60,10 +65,10 @@ void Control::queueRequest(int request){
     
     int i = 0;
     
-    while(uwRequests[i] != 42)
+    while(targets[i] != 42)
         i++;
     
-    uwRequests[i] = request;
+    targets[i] = request;
     
     
 }
