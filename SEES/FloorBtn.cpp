@@ -6,9 +6,8 @@ void FloorButton::pushButton(){
     
     while(true){
         wait(); // wait for a new request
-        /*
-        cout << "Woke up and read: \n"
-        << "Req0: " << requests[0]->event() << " - " << */
+        cout << name() << "\t\t\t\t DC: " << sc_delta_count() << endl;
+        
         int req;
         for(int i = 0; i < 3; i++){
             // check which signal caused the wake-up
@@ -17,15 +16,15 @@ void FloorButton::pushButton(){
                 
                 // check if it is an upward or downward request
                 if( req >= 0 ){
-                    if( !pushedUp[i]->read() ){
-                        pushedUp[i]->write(1);
-                        cout << name() << " received new upward request from floor " << i << endl;
+                    if( pushedUp[i]->read() == 42 ){
+                        pushedUp[i]->write(req);
+                        cout <<"\t upward   floor " << req << "\t\t DC: " << sc_delta_count() << endl;
                 
                     }
                 } else {
-                    if( !pushedDown[i]->read() ) {
-                        pushedDown[i]->write(1);
-                        cout << name() << " received new downward request from floor " << i << endl;
+                    if( pushedDown[i]->read() == 42 ) {
+                        pushedDown[i]->write(req);
+                        cout << "\t downward floor " << (req*-1) << "\t\t DC: " << sc_delta_count() << endl;
                     }
                 }
             }

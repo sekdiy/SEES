@@ -7,6 +7,8 @@ SC_MODULE(Passenger){
     
     // ports
     sc_out<int> request;
+    sc_out<int> crossedBarrier;
+    sc_in<int>  doorOpenAtPosition;
     
     // members
     int position;
@@ -22,7 +24,7 @@ SC_MODULE(Passenger){
         SC_METHOD(sayMyName);
         // sensitivity list here
         SC_THREAD(travel);
-        // sensitivity list here
+        sensitive << doorOpenAtPosition;
     }
     
 };

@@ -3,7 +3,7 @@
 using namespace std;
 
 void Passenger::sayMyName(){
-    cout << "Hi, my name is " << name() << endl;
+    cout << "Hi, my name is " << name() << " \t \t DC: " << sc_delta_count() << endl;
 }
 
 void Passenger::travel(){
@@ -12,6 +12,7 @@ void Passenger::travel(){
     
     while (true) {
         
+        cout << name() << endl;
         destination = rand() % 4; // ... and end for the passengers journey
         
         while(destination == position)
@@ -21,11 +22,13 @@ void Passenger::travel(){
         if( position < destination && request->read() == -1 ){
             request->write(position);
         } else if ( position > destination && request->read() == -1) {
-            request->write(position*-1);
+            request->write(position * -1);
         }
         // else push btn downwards
-        cout << name() << " waits to travel from floor " << position << " towards floor " << destination << "." << endl;
-        wait(2, SC_SEC);
+        cout << "\t from " << position << " to " << destination << " \t\t\t DC: " << sc_delta_count() << endl;
+        while ( doorOpenAtPosition->read() != position ) {
+            wait();
+        }
         position = destination;
     }
 }
