@@ -44,13 +44,17 @@ void Elevator::drive(){
                     doorConditions++;
                     doorCondition->write(doorCondition);
                     cout << "\t Door open " << doorConditions << endl;
+
+                    // signal to inner buttons that request can be cleared
+                    clearRequestAt->write(position->read() /10);
                     
                     // signal to the passengers on which floor the door is open
                     for(int i = 0; i < 3; i++)
                         doorOpen[i]->write((position->read()/10) * mode );
-                    
+
                     wait();
                     
+                   
                 }
             }
             

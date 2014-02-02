@@ -2,6 +2,7 @@
 #include "FloorBtn.h"
 #include "Control.h"
 #include "Elevator.h"
+#include "ElevBtn.h"
 #include <systemc>
 using namespace sc_core;
 
@@ -17,9 +18,13 @@ int sc_main (int argc, char * argv[]) {
     sc_signal<int>  elevCtrlDoor;
     sc_signal<int>  elevCtrlPosition;
     sc_signal<bool> elevCtlrStop;
+    sc_signal<int>  elevCtrlButtons[3];
     
     sc_signal<int> elevPassBarrier[3];
     sc_signal<int> elevPassDoor[3];
+    sc_signal<int> elevPassBtn[3];
+    
+    sc_signal<int> elevBtnClear;
     
     // Control
     Control ctrl("Main_Control");
@@ -40,6 +45,9 @@ int sc_main (int argc, char * argv[]) {
     // Button on each floor to request a lift going upwards
     FloorButton buttons("FloorButtons");
     
+    // Button in elevator to request a halt
+    ElevBtn elevButtons("ElevatorButtons");
+    
     for(int i = 0; i < 3; i++){
         
         // bind ports
@@ -51,10 +59,15 @@ int sc_main (int argc, char * argv[]) {
         ctrl.uwRequests[i](floorCtrlUwInteraction[i]);
         ctrl.dwRequests[i](floorCtrlDwInteraction[i]);
         ctrl.targets[i] = 42;
+        ctrl.elevRequests[i](elevCtrlButtons[i]);
         
         //
         elev.barrier[i](elevPassBarrier[i]);
         elev.doorOpen[i](elevPassDoor[i]);
+        
+        //
+        elevButtons.requests[i](elevPassBtn[i]);
+        elevButtons.pushed[i](elevCtrlButtons[i]);
         
         // initialise signals
         floorButtonPassengerInteraction[i].write(-1);
@@ -62,6 +75,8 @@ int sc_main (int argc, char * argv[]) {
         floorCtrlUwInteraction[i].write(42);
         elevPassBarrier[i].write(-1);
         elevPassDoor[i].write(-1);
+        elevPassBtn[i].write(-1);
+        elevCtrlButtons[i].write(-1);
     }
     
     ctrl.elevatorMode(elevCtrlMode);
@@ -79,6 +94,9 @@ int sc_main (int argc, char * argv[]) {
     elev.position(elevCtrlPosition);
     elev.position->write(0);
     elev.stopHere(elevCtlrStop);
+    elev.clearRequestAt(elevBtnClear);
+    
+    elevButtons.clearRequest(elevBtnClear);
 
     
     pass1.request(floorButtonPassengerInteraction[0]);
@@ -92,6 +110,11 @@ int sc_main (int argc, char * argv[]) {
     pass1.doorOpenAtPosition(elevPassDoor[0]);
     pass2.doorOpenAtPosition(elevPassDoor[1]);
     pass3.doorOpenAtPosition(elevPassDoor[2]);
+    
+    pass1.elevRequest(elevPassBtn[0]);
+    pass2.elevRequest(elevPassBtn[1]);
+    pass3.elevRequest(elevPassBtn[2]);
+    
     
     sc_start(15, SC_SEC);
     return 0;

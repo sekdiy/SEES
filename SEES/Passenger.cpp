@@ -32,6 +32,8 @@ void Passenger::travel(){
             wait();
         }
         cout << "\t " << name() << " enters lift \t\t\t DC: " << sc_delta_count() << endl;
+        elevRequest->write(destination);
+        wait();
         position = destination;
     }
 }

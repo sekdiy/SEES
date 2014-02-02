@@ -13,6 +13,7 @@ SC_MODULE(Elevator){
     sc_out<int>     doorOpen[3];        // signals to the passenger that the door is open
     sc_in<bool>     stopHere;           // true, if the a request comes from the current position
     sc_in<int>      barrier[3];         // signals that a passenger crossed the light barrier
+    sc_out<int>     clearRequestAt;     // signals to the inner buttons that a floor is reached
     
     // members
     int doorConditions;             // 0 - closed, 1 - opening, 2 - opened, 3 - closing;

@@ -10,12 +10,15 @@ SC_MODULE(Control){
     sc_in<int> uwRequests[3];       // upward-requests from FloorBtn
     sc_in<int> dwRequests[3];       // downward-requests from FloorBtn
     
+    // elevator-buttons
+    sc_in<int> elevRequests[3];     // requests coming from inside the elevator
+    
     // elevator signals
     sc_inout<int> elevatorMode;     // mode the elevator is in
     sc_inout<int> elevatorTarget;   // floor towards which the elev is going
     sc_in<int>    elevatorDoor;     // the condition of the elevators door
     sc_in<int>    elevatorPosition; // the elevators current position; for further details refer to Elevator.h
-    sc_out<bool>   elevatorStop;    // if the elevator has to stop
+    sc_out<bool>  elevatorStop;     // if the elevator has to stop
     
     // members
     int newMode;                       // mode of the elevator; 0 - idle, 1 - up, -1 - down

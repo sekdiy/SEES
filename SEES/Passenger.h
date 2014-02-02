@@ -9,6 +9,7 @@ SC_MODULE(Passenger){
     sc_inout<int>   request;
     sc_out<int>     crossedBarrier;
     sc_in<int>      doorOpenAtPosition;
+    sc_out<int>     elevRequest;
     
     // members
     int position;
