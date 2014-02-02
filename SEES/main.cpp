@@ -14,6 +14,7 @@ int sc_main (int argc, char * argv[]) {
     
     sc_signal<int>  elevCtrlMode;
     sc_signal<int>  elevCtrlTarget;
+    sc_signal<int>  elevCtrlDoor;
     sc_signal<int>  elevCtrlPosition;
     sc_signal<bool> elevCtlrStop;
     
@@ -67,11 +68,14 @@ int sc_main (int argc, char * argv[]) {
     ctrl.elevatorPosition(elevCtrlPosition);
     ctrl.elevatorTarget(elevCtrlTarget);
     ctrl.elevatorMode->write(0);
+    ctrl.elevatorDoor(elevCtrlDoor);
+    elevCtrlDoor.write(0);
     ctrl.elevatorStop(elevCtlrStop);
     elevCtlrStop.write(false);
     
     elev.nextMode(elevCtrlMode);
     elev.nextTarget(elevCtrlTarget);
+    elev.doorCondition(elevCtrlDoor);
     elev.position(elevCtrlPosition);
     elev.position->write(0);
     elev.stopHere(elevCtlrStop);

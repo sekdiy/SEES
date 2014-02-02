@@ -5,11 +5,23 @@ using namespace std;
 void Control::youBetterStop(){
     while (true) {
         wait();
+        
         if( (elevatorPosition->read() == targets[0]*10 && elevatorMode->read() == 1) || (elevatorPosition->read() == targets[0]*-10 && elevatorMode->read() == -1)){
             cout << "\t Stop at " << elevatorPosition->read() << endl;
             elevatorStop->write(true);
+            while(elevatorDoor->read() != 2 ){
+                elevatorStop->write(true);
+                wait();
+            }
+            
         } else if( elevatorPosition->read() == elevatorTarget->read()*10 ){
             cout << " \t Fin at " << elevatorPosition->read() << endl;
+            elevatorStop->write(true);
+            while(elevatorDoor->read() != 2 ){
+                elevatorStop->write(true);
+                wait();
+            }
+            
         } else {
             elevatorStop->write(false);
             cout << "\t No Stop at " << elevatorPosition->read() << endl;

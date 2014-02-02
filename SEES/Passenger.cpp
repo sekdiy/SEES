@@ -26,9 +26,12 @@ void Passenger::travel(){
         }
         // else push btn downwards
         cout << "\t from " << position << " to " << destination << " \t\t\t DC: " << sc_delta_count() << endl;
-        while ( doorOpenAtPosition->read() != position ) {
+        
+        wait();
+        while ( doorOpenAtPosition->read() != request->read() ) {
             wait();
         }
+        cout << "\t " << name() << " enters lift \t\t\t DC: " << sc_delta_count() << endl;
         position = destination;
     }
 }

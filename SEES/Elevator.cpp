@@ -20,17 +20,45 @@ void Elevator::drive(){
         // check in which direction the journey goes
         // upwards
         if( target * 10 > position->read() ){
-            while ( target * 10 > position->read() ) {
+            
+            // travel upwards
+            while ( target * 10 > position->read() && doorConditions == 0) {
                 position->write(position->read()+5);
                 wait(1, SC_SEC);
                 cout << "\t Elevator reached position " << position->read() << endl;
+                
+                // if control signals the elevator to stop
+                if( stopHere->read() == true ){
+                    
+                    // open the door
+                    cout << "\t Opens door " << endl;
+                    position->write(position->read());
+                    
+                    // door is opening
+                    wait(1, SC_SEC);
+                    doorConditions++;
+                    doorCondition->write(doorConditions);
+                    
+                    // door is open in 1 sec
+                    wait(1,SC_SEC);
+                    doorConditions++;
+                    doorCondition->write(doorCondition);
+                    cout << "\t Door open " << doorConditions << endl;
+                    
+                    // signal to the passengers on which floor the door is open
+                    for(int i = 0; i < 3; i++)
+                        doorOpen[i]->write((position->read()/10) * mode );
+                    
+                    wait();
+                    
+                }
             }
             
             // open doors
             
         // downwards
         } else if( target * 10 < position->read()){
-            while ( target * 10 < position->read() ) {
+            while ( target * 10 < position->read() && doorConditions == 0 ) {
                 position->write(position->read()-5);
                 wait(1, SC_SEC);
                 cout << "\t Elevator reached position " << position->read();

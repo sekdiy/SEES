@@ -6,9 +6,9 @@ using namespace sc_core;
 SC_MODULE(Passenger){
     
     // ports
-    sc_out<int> request;
-    sc_out<int> crossedBarrier;
-    sc_in<int>  doorOpenAtPosition;
+    sc_inout<int>   request;
+    sc_out<int>     crossedBarrier;
+    sc_in<int>      doorOpenAtPosition;
     
     // members
     int position;

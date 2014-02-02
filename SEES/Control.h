@@ -13,8 +13,9 @@ SC_MODULE(Control){
     // elevator signals
     sc_inout<int> elevatorMode;     // mode the elevator is in
     sc_inout<int> elevatorTarget;   // floor towards which the elev is going
+    sc_in<int>    elevatorDoor;     // the condition of the elevators door
     sc_in<int>    elevatorPosition; // the elevators current position; for further details refer to Elevator.h
-    sc_out<bool>   elevatorStop;     // if the elevator has to stop
+    sc_out<bool>   elevatorStop;    // if the elevator has to stop
     
     // members
     int newMode;                       // mode of the elevator; 0 - idle, 1 - up, -1 - down
@@ -28,6 +29,7 @@ SC_MODULE(Control){
     // method queues a request
     void queueRequest(int request);
     void insertRequest(int request);
+    void shiftRequests();
     
     // method checks if the lift has to stop at the current floor
     void youBetterStop();
