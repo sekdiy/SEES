@@ -36,21 +36,20 @@ void Control::keepOnRunning(){
 }
 
 void Control::shiftRequests(){
-    cout << "\t\t Will shift " << targets[0] << " " << targets[1] << " " << targets[2] << "... " << endl;
+//    cout << "\t\t Will shift " << targets[0] << " " << targets[1] << " " << targets[2] << "... " << endl;
+    int newTargets[3] = {42,42,42};
+    int j = 0;
     for( int i = 0; i < 3; i++ ){
         
-        if( targets[i] == 42){
-            int j = i+1;
-            
-            while ( targets[j] == 42 && j <= 1)
-                j++;
-            
-            if( targets[j] != 42 )
-                targets[i] = targets[j];
-            
+        if( targets[i] != 42){
+            newTargets[j] = targets[i];
+            j++;
         }
     }
-    cout << "\t\t To " << targets[0] << " " << targets[1] << " " << targets[2] << " " << endl;
+    
+    for( int i = 0; i < 3; i++)
+        targets[i] = newTargets[i];
+//    cout << "\t\t To " << targets[0] << " " << targets[1] << " " << targets[2] << " " << endl;
 }
 
 void Control::youBetterStop(){
@@ -117,11 +116,13 @@ void Control::receiveFloorRequest(){
                     // if request comes from a higher than the elevators position floor, which is below the target and if the elevator moves upwards
                     if( (10 * request > elevatorPosition->read()) &&  request < elevatorTarget->read() && elevatorMode->read() == 1 ){
 //                        cout << "\t " << request << ">" << elevatorPosition->read() << " & " << request << "<" << elevatorTarget->read() << " & mode " << elevatorMode->read() << endl;
-                        insertRequest(request);
+                        if( request != newTarget )
+                            insertRequest(request);
                     
                     } else {
 //                        cout << "\t Won't pass " << request << endl;
-                        queueRequest(request);
+                        if( request != newTarget )
+                            queueRequest(request);
                     }
                 }
             }
@@ -147,10 +148,12 @@ void Control::receiveFloorRequest(){
                     // if request comes from a lower than the elevators position floor, which is above the target and if the elevator moves downwards
                     if( (10 * request < elevatorPosition->read()) &&  request > elevatorTarget->read() && elevatorMode->read() == -1 ){
 //                        cout << "\t " << request << "<" << elevatorPosition->read() << " & " << request << ">" << elevatorTarget->read() << " & mode " << elevatorMode->read() << endl;
-                        insertRequest(request);
+                        if( request != newTarget )
+                            insertRequest(request);
                     } else {
 //                        cout << "\t Won't pass " << request << endl;
-                        queueRequest(request);
+                        if( request != newTarget )
+                            queueRequest(request);
                     }
                 }
             } // end if dwRequest
@@ -166,19 +169,40 @@ void Control::receiveFloorRequest(){
                         wait();
                     
                     newTarget = innerReq;
-                    if( newTarget < elevatorPosition->read() )
+                    if( newTarget < elevatorPosition->read() /10)
                         newMode = -1;
                     else
                         newMode = 1;
                     
 
                     // get the elevator moving
-                    cout << "\t Ctrl sends new targeet: " << newTarget << " and new mode: " << newMode << endl;
+                    cout << "\t Ctrl sends new target: " << newTarget << " and new mode: " << newMode << endl;
                     elevatorMode->write(newMode);
                     elevatorTarget->write(newTarget);
                 } else {
                     // queue the request
                     insertRequest(innerReq);
+                }
+            } // end check for request
+            
+            // if the elevator has nothing to do
+            if( elevatorDoor->read() == 0 && newTarget == 42){
+                
+                if( targets[0] == 42 ){
+                    newMode = 0;
+                    cout << "Elevator is idle  \t\t\t\t DC: " << sc_delta_count() << endl;
+                } else {
+                    // get a target from the queue;
+                    newTarget = targets[0];
+                    newMode = newTarget >= 0 ? 1 : -1;
+                    newTarget = newTarget >= 0 ? newTarget : newTarget*-1;
+                    
+                    targets[0] = 42;
+                    cout << "Elevators newTarget: " << newTarget << " newMode: " << newMode << endl;
+                    shiftRequests();
+                    // get the elevator moving
+                    elevatorMode->write(newMode);
+                    elevatorTarget->write(newTarget);
                 }
             }
                 
@@ -239,7 +263,7 @@ void Control::queueRequest(int request){
     }
     
     // if it does not exist, queue the request
-    if( !alreadyExists ){
+    if( !alreadyExists && request != newTarget ){
         cout << "\t Queueing request from floor " << request << endl;
         int i = 0;
         

@@ -164,6 +164,7 @@ void Elevator::drive(){
                             doorConditions = 0;
                             doorCondition->write(doorConditions);
                         }
+                        cout << "\t Door closed: " << doorConditions << endl;
                     }
                 }
             }

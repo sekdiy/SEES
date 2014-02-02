@@ -41,6 +41,7 @@ SC_MODULE(Control){
     // method clears the targets and surveils the closing of the door
     void keepOnRunning();
     
+    
     SC_CTOR(Control){
         
         SC_THREAD(receiveFloorRequest);
@@ -51,6 +52,7 @@ SC_MODULE(Control){
         
         SC_THREAD(keepOnRunning);
         sensitive << elevatorDoor;
+        
     }
 };
 

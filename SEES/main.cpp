@@ -38,16 +38,17 @@ int sc_main (int argc, char * argv[]) {
     elev.mode = 0;
     elev.doorConditions = 0;
     
-    // Passengers
-    Passenger pass1("Peter");
-    Passenger pass2("Paul");
-    Passenger pass3("Mary");
-    
     // Button on each floor to request a lift going upwards
     FloorButton buttons("FloorButtons");
     
     // Button in elevator to request a halt
     ElevBtn elevButtons("ElevatorButtons");
+    
+    // Passengers
+    Passenger pass1("Peter");
+    Passenger pass2("Paul");
+    Passenger pass3("Mary");
+
     
     for(int i = 0; i < 3; i++){
         
@@ -120,6 +121,6 @@ int sc_main (int argc, char * argv[]) {
     pass3.elevRequest(elevPassBtn[2]);
     
     
-    sc_start(250, SC_SEC);
+    sc_start(250000, SC_SEC);
     return 0;
 }
