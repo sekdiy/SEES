@@ -14,7 +14,7 @@ void ElevBtn::waitForRequest(){
                 if( pushed[i]->read() == clearRequest->read() ){
                     
                     pushed[i]->write(-1);
-                    cout << "Cleared " << clearRequest->read();
+                    cout << "Elevator cleared button " << clearRequest->read() << endl;
                     
                 }
             }
@@ -29,7 +29,7 @@ void ElevBtn::waitForRequest(){
                 if( pushed[i]->read() == -1){
                     
                     pushed[i]->write(requests[i]->read());
-                    cout << "\t Pushed button " << requests[i]->read() << endl;
+                    cout << "\t Button " << requests[i]->read() << " gets pushed" << endl;
                     
                 } else {
                     cout << "\t Button " << requests[i]->read() << " already pushed" << endl;

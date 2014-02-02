@@ -99,8 +99,8 @@
 				3B2FECFF1899D92700EBBF46 /* Control.cpp */,
 				3B2FED011899D96C00EBBF46 /* Elevator.h */,
 				3B2FED021899D97600EBBF46 /* Elevator.cpp */,
-				3BC36B78189E790300769D83 /* ElevBtn.cpp */,
 				3BC36B7A189E791C00769D83 /* ElevBtn.h */,
+				3BC36B78189E790300769D83 /* ElevBtn.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";

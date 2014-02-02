@@ -10,9 +10,8 @@ void Passenger::travel(){
     
     position = rand() % 4; // get a random start...
     
-    while (true) {
+//    while (true) {
         
-        cout << name() << endl;
         destination = rand() % 4; // ... and end for the passengers journey
         
         while(destination == position)
@@ -25,15 +24,24 @@ void Passenger::travel(){
             request->write(position * -1);
         }
         // else push btn downwards
-        cout << "\t from " << position << " to " << destination << " \t\t\t DC: " << sc_delta_count() << endl;
+        cout << name() << " goes from " << position << " to " << destination << " \t\t DC: " << sc_delta_count() << endl;
         
         wait();
         while ( doorOpenAtPosition->read() != request->read() ) {
             wait();
         }
-        cout << "\t " << name() << " enters lift \t\t\t DC: " << sc_delta_count() << endl;
+        crossedBarrier->write(1);
+        cout << "\t " << name() << " entered the lift \tDC: " << sc_delta_count() << endl;
         elevRequest->write(destination);
-        wait();
+        cout << "\t " << name() << " pushed button " << elevRequest->read() << " \tDC: " << sc_delta_count() << endl;
+    
+        while ( doorOpenAtPosition->read() != destination && doorOpenAtPosition->read() *-1 != destination ) {
+            cout << "\t " << name() << " listens to the elevator-music, because the door is open on floor " << doorOpenAtPosition->read() << endl;
+            wait();
+        }
+        crossedBarrier->write(1);
+    
+        cout << "\n\t" << name() << " reached his destination.\n" << endl;
         position = destination;
-    }
+ //   }
 }

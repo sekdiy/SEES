@@ -16,6 +16,7 @@ int sc_main (int argc, char * argv[]) {
     sc_signal<int>  elevCtrlMode;
     sc_signal<int>  elevCtrlTarget;
     sc_signal<int>  elevCtrlDoor;
+    sc_signal<bool> elevCtrlCloseDoor;
     sc_signal<int>  elevCtrlPosition;
     sc_signal<bool> elevCtlrStop;
     sc_signal<int>  elevCtrlButtons[3];
@@ -85,12 +86,15 @@ int sc_main (int argc, char * argv[]) {
     ctrl.elevatorMode->write(0);
     ctrl.elevatorDoor(elevCtrlDoor);
     elevCtrlDoor.write(0);
+    ctrl.elevatorCloseDoor(elevCtrlCloseDoor);
+    elevCtrlCloseDoor.write(false);
     ctrl.elevatorStop(elevCtlrStop);
     elevCtlrStop.write(false);
     
     elev.nextMode(elevCtrlMode);
     elev.nextTarget(elevCtrlTarget);
     elev.doorCondition(elevCtrlDoor);
+    elev.closeDoor(elevCtrlCloseDoor);
     elev.position(elevCtrlPosition);
     elev.position->write(0);
     elev.stopHere(elevCtlrStop);
@@ -116,6 +120,6 @@ int sc_main (int argc, char * argv[]) {
     pass3.elevRequest(elevPassBtn[2]);
     
     
-    sc_start(15, SC_SEC);
+    sc_start(250, SC_SEC);
     return 0;
 }

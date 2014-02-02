@@ -17,6 +17,7 @@ SC_MODULE(Control){
     sc_inout<int> elevatorMode;     // mode the elevator is in
     sc_inout<int> elevatorTarget;   // floor towards which the elev is going
     sc_in<int>    elevatorDoor;     // the condition of the elevators door
+    sc_out<bool>  elevatorCloseDoor;// signals the eleavtor to close the door
     sc_in<int>    elevatorPosition; // the elevators current position; for further details refer to Elevator.h
     sc_out<bool>  elevatorStop;     // if the elevator has to stop
     
@@ -37,13 +38,19 @@ SC_MODULE(Control){
     // method checks if the lift has to stop at the current floor
     void youBetterStop();
     
+    // method clears the targets and surveils the closing of the door
+    void keepOnRunning();
+    
     SC_CTOR(Control){
         
         SC_THREAD(receiveFloorRequest);
-        sensitive << uwRequests[0] << uwRequests[1] << uwRequests[2] << dwRequests[0] << dwRequests[1] << dwRequests[2];
+        sensitive << uwRequests[0] << uwRequests[1] << uwRequests[2] << dwRequests[0] << dwRequests[1] << dwRequests[2] << elevRequests[0] << elevRequests[1] << elevRequests[2] << elevatorDoor;
         
         SC_THREAD(youBetterStop);
-        sensitive << elevatorPosition;
+        sensitive << elevatorPosition << elevatorDoor;
+        
+        SC_THREAD(keepOnRunning);
+        sensitive << elevatorDoor;
     }
 };
 
